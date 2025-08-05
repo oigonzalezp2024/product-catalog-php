@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de configuración
-include 'data.php';
+include '../../data.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +12,14 @@ include 'data.php';
     <title><?php echo $page_info['title']; ?></title>
     <meta name="description" content="<?php echo $page_info['description']; ?>">
     <meta name="keywords" content="<?php echo $page_info['keywords']; ?>">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 
 <body>
 
     <header class="banner">
         <img
-            src="<?php echo $page_info['banner']['src']; ?>"
+            src="../../<?php echo $page_info['banner']['src']; ?>"
             alt="<?php echo $page_info['banner']['alt']; ?>"
             width="<?php echo $page_info['banner']['width']; ?>"
             height="<?php echo $page_info['banner']['height']; ?>">
@@ -82,7 +82,7 @@ include 'data.php';
                 </div>
             <?php endforeach; ?>
             <div class="metodo-pago" style="margin-top:40px;">
-                <a href="./controller/controller.php?orden=portafolioHombres" style="
+                <a href="./controller/controller.php?orden=visualizarPedido" style="
                     background-color: #ffffff;
                     color: #0064ff;
                     padding: 16px;
@@ -90,7 +90,7 @@ include 'data.php';
                     border: 5px solid #5ac9ff;
                     border-radius: 16px;
                     ">Volver</a>
-                <a href="generate_pdf.php" style="
+                <a href="../../generate_pdf.php" style="
                     background-color: #ffffff;
                     color: #00ff46;
                     padding: 16px;
@@ -102,7 +102,7 @@ include 'data.php';
         </aside>
     </main>
 
-    <script src="assets/js/script.js"></script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>

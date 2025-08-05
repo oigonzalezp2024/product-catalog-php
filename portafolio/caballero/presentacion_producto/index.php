@@ -57,7 +57,7 @@ require_once 'config.php'; // Incluye tu archivo de configuración
                 </p>
                 <div class="product-actions">
                     <span class="product-price">$<?php echo number_format($product_data['price'], 2, '.', ','); ?></span>
-                    <a class="add-to-cart-btn" href="../controller/controller.php?orden=agregarAlCarrito">Añadir al Carrito</a>
+                    <a class="add-to-cart-btn" href="../controller/controller.php?orden=agregarALCarrito">Añadir al Carrito</a>
                 </div>
 
                 <div class="qr-code-section">
@@ -71,7 +71,7 @@ require_once 'config.php'; // Incluye tu archivo de configuración
                 </div>
 
                 <div class="product-actions">    
-                    <a class="add-to-cart-btn" href="../controller/controller.php?orden=agregarAlCarrito" style="
+                    <a class="add-to-cart-btn" href="../controller/controller.php?orden=volverALPortafolio" style="
                     width: 100%;
                     text-align: center;
                     max-width: 300px;

@@ -53,13 +53,13 @@ require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
                     <?php if (isset($category_data['banner_image'])): ?>
                         <div class="banner-image-container">
                             <img src="<?php echo htmlspecialchars($category_data['banner_image']); ?>"
-                                 alt="Banner de la categoría <?php echo htmlspecialchars($category_name); ?>"
-                                 class="category-banner-image"
-                                 <?php if (!empty($banner_width) && !empty($banner_height)): ?>
-                                     width="<?php echo $banner_width; ?>"
-                                     height="<?php echo $banner_height; ?>"
-                                 <?php endif; ?>
-                            >
+                                    alt="Banner de la categoría <?php echo htmlspecialchars($category_name); ?>"
+                                    class="category-banner-image"
+                                    <?php if (!empty($banner_width) && !empty($banner_height)): ?>
+                                        width="<?php echo $banner_width; ?>"
+                                        height="<?php echo $banner_height; ?>"
+                                    <?php endif; ?>
+                                >
                         </div>
                     <?php endif; ?>
                     <div class="product-grid">
@@ -77,6 +77,7 @@ require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
                                         }
                                     }
                                     ?>
+                                    <a href="./controller/controller.php?orden=detalle">
                                     <img src="<?php echo htmlspecialchars($item['image']); ?>"
                                          alt="Imagen de <?php echo htmlspecialchars($item['name']); ?> - <?php echo htmlspecialchars($category_name); ?>"
                                          <?php if (!empty($item_width) && !empty($item_height)): ?>
@@ -84,6 +85,7 @@ require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
                                              height="<?php echo $item_height; ?>"
                                          <?php endif; ?>
                                     >
+                                    </a>
                                     <figcaption><h3><?php echo htmlspecialchars($item['name']); ?></h3></figcaption>
                                 </figure>
                                 <p class="main-attribute"><?php echo htmlspecialchars($item['main_attribute']); ?></p>
@@ -102,5 +104,16 @@ require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
     <footer>
         <p><a style="color: #ffffff; text-decoration: none; font-weight: bold;" href="https://babull.com.co"><?php echo htmlspecialchars($business_info['footer_text']); ?></a></p>
     </footer>
+<a href="./controller/controller.php?orden=visualizarPedido"
+    id="carrito"
+    style="
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    background-color: red;
+    position: fixed; /* <-- Cambia de 'absolute' a 'fixed' */
+    right: 5px;
+    top: 5px;
+"></a>
 </body>
 </html>
