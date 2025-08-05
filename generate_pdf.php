@@ -10,3 +10,4 @@ require('./src/Application/OrderPDFGenerator.php');
 $pdf = new OrderPDFGenerator($page_info, $order_details);
 $pdf->generate();
 $pdf->Output('F','./pedidos/filename.pdf'); 
+$pdf->Output(); 

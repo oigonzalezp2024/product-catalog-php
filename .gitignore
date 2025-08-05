@@ -51,3 +51,6 @@ coverage
 # Excluye configuraciones de editores e IDEs
 .idea
 .vscode
+
+# Excluye archivos correspondientes al modelo de negocio
+/pedidos
