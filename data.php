@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
+// Carga las variables de entorno desde el archivo .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // Datos generales de la página y el banner de la empresa
 use App\Domain\Interfaces\Entities\MyImageInterface;
 use App\Domain\Interfaces\Entities\CompanyInterface;
@@ -81,8 +85,34 @@ $myItems = [
         'product' => $items[1]->getProduct(),
         'quantity' => $items[1]->getQuantity(),
         'price' => $items[1]->getPrice(),
-    ]
+    ],
+    [
+        'product' => $items[1]->getProduct(),
+        'quantity' => $items[1]->getQuantity(),
+        'price' => $items[1]->getPrice(),
+    ],
+    [
+        'product' => $items[1]->getProduct(),
+        'quantity' => $items[1]->getQuantity(),
+        'price' => $items[1]->getPrice(),
+    ],
+    [
+        'product' => $items[1]->getProduct(),
+        'quantity' => $items[1]->getQuantity(),
+        'price' => $items[1]->getPrice(),
+    ],
+    [
+        'product' => $items[1]->getProduct(),
+        'quantity' => $items[1]->getQuantity(),
+        'price' => $items[1]->getPrice(),
+    ],
 ];
+
+// Calcula el total usando array_reduce()
+$total_amount = array_reduce($myItems, function ($valorAcumulado, $item)
+{
+    return $valorAcumulado + ($item['quantity'] * $item['price']);
+}, 0);
 
 $qrs = [];
 $src = 'assets/images/qr_nequi.jpeg';
@@ -164,7 +194,7 @@ array_push($payment_methods, $payment_method);
 
 // Datos dinámicos del pedido que se cargarían desde una base de datos o API
 $order_details = [
-    'order_id' => '4848418',
+    'order_id' => '48484186666',
     'dest' => [
         [
             'name' => $client->getName(),
@@ -174,6 +204,46 @@ $order_details = [
         ],
     ],
     'items' => $myItems,
-    'total_amount' => 70000,
+    'total_amount' => "".$total_amount,
     'payment_methods' => $payment_methods,
+];
+
+$order_id = $order_details['order_id'];
+
+$data = [
+    // Datos del usuario y el pedido
+    'user_name' => 'Oscar Ivan Gonzalez Peña',
+    'order_id' => $order_id,
+    'view_order_url' => $_ENV['VIEW_ORDER_URL'] . '/' . $order_id,
+    'customer_service_email' => $_ENV['CUSTOMER_SERVICE_EMAIL'],
+
+    // Credenciales y configuración del servidor SMTP
+    'smtp_username' => $_ENV['SMTP_USERNAME'],
+    'smtp_password' => $_ENV['SMTP_PASSWORD'],
+
+    // Configuración del remitente
+    'from_email' => $_ENV['FROM_EMAIL'],
+    'from_name' => $_ENV['FROM_NAME'],
+    
+    // Rutas a archivos de la plantilla y adjunto
+    'template_path' => $_ENV['TEMPLATE_PATH'],
+    'attachment_path' => $_ENV['ATTACHMENT_PATH'] . 'pedido-'.$order_id.'.pdf',
+    'attachment_name' => 'pedido-'.$order_id.'.pdf',
+
+    // Información de la empresa
+    'company_name' => 'Babull.com.co',
+    'company_address' => $_ENV['COMPANY_ADDRESS'],
+    'company_website' => $_ENV['COMPANY_WEBSITE'],
+    
+    // Destinatarios del correo
+    'recipients' => [
+        [
+            'email' => 'oigonzalezp2024@gmail.com',
+            'name'  => 'Oscar Ivan Gonzalez Peña' // El cliente
+        ],
+        [
+            'email' => $_ENV['CUSTOMER_SERVICE_EMAIL'],
+            'name'  => 'Atención al Cliente' // El equipo de soporte
+        ],
+    ],
 ];

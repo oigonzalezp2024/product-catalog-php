@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Confirmación de pedido.">
+    <title>Confirmación de tu pedido</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #24292e;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #fff; border: 1px solid #e1e4e8; border-radius: 6px; overflow: hidden;">
+        <div style="text-align: center; padding: 20px; border-bottom: 1px solid #e1e4e8;">
+            <h2 style="font-size: 24px; font-weight: 400; margin: 0;">¡Pedido Confirmado!</h2>
+        </div>
+
+        <div style="padding: 20px;">
+            <p style="font-size: 14px; line-height: 1.5; margin: 0 0 15px;">Hola {{ user_name }},</p>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0 0 15px;">¡Tu pedido ha sido confirmado con éxito! Estamos procesando tu compra y pronto te notificaremos cuando sea enviado.</p>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0 0 15px;">Adjuntamos a este correo un PDF con los detalles de tu pedido. Por favor, revísalo para verificar la información de tu compra.</p>
+            <div style="text-align: center;">
+                <a href="{{ view_order_url }}" style="display: inline-block; background-color: #1f883d; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 14px; text-align: center; margin: 20px 0;" target="_blank">Ver detalles del pedido</a>
+            </div>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0 0 15px;">Si tienes alguna pregunta o necesitas ayuda con tu pedido, no dudes en contactarnos.</p>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0 0 15px;">Gracias por tu confianza,</p>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0 0 15px;">El equipo de {{ company_name }}</p>
+        </div>
+
+        <div style="text-align: center; padding: 20px; border-top: 1px solid #e1e4e8; font-size: 12px; color: #6a737d;">
+            <p style="margin: 0;">Este correo se envió a {{ customer_service_email }} porque realizaste un pedido en {{ company_name }}</p>
+            <p style="margin: 0;">{{ company_name }} · {{ company_address }}</p>
+            <p style="margin: 0;"><a href="{{ company_website }}" style="color: #0366d6; text-decoration: none;" target="_blank">Visita nuestro sitio web</a></p>
+        </div>
+    </div>
+</body>
+</html>

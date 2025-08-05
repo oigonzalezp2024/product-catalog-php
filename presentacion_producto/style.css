@@ -1,0 +1,355 @@
+/* style.css
+   Contiene todos los estilos para el diseño responsivo de la página de producto.
+*/
+
+/* Variables CSS para colores y fuentes, para fácil personalización */
+:root {
+    --primary-color: #0056b3; /* Azul fuerte para elementos principales */
+    --secondary-color: #007bff; /* Azul claro para acentos y botones */
+    --text-color: #333; /* Color de texto general */
+    --light-text-color: #f8f8f8; /* Color de texto para fondos oscuros */
+    --background-color: #f4f4f4; /* Color de fondo general de la página */
+    --white: #fff; /* Blanco puro */
+    --border-color: #ddd; /* Color para bordes sutiles */
+    --font-family: 'Arial', sans-serif; /* Fuente principal */
+}
+
+/* Reseteo básico de márgenes y paddings, y modelo de caja para consistencia entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globales del cuerpo de la página */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Contenedor central para el contenido principal, limita el ancho y centra el contenido */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 1rem; /* Espaciado interno */
+}
+
+/* --- Estilos del Encabezado (Header) --- */
+.site-header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para darle profundidad */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between; /* Espacia el título y la navegación */
+    align-items: center; /* Alinea verticalmente al centro */
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.main-nav {
+    /* Por defecto en móvil, esto contendrá el toggle y la lista (oculta) */
+    display: flex;
+    align-items: center; /* Alinea el botón de menú verticalmente */
+}
+
+.main-nav .nav-list {
+    list-style: none; /* Elimina los puntos de la lista por defecto */
+    display: none; /* Oculta la lista de navegación por defecto en móviles */
+    flex-direction: column; /* Para que los ítems del menú se apilen verticalmente en móvil */
+    position: absolute; /* Posiciona el menú de forma absoluta */
+    top: 60px; /* Ajusta esto según la altura real de tu header para que no se superponga */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    padding: 1rem 0; /* Espaciado interno para los ítems del menú */
+    margin: 0; /* Elimina margen por defecto */
+}
+
+/* Estado del menú cuando está abierto (manejado por JS) */
+.main-nav .nav-list.open {
+    display: flex; /* Muestra la lista cuando la clase 'open' está presente */
+}
+
+.main-nav .nav-list li {
+    margin: 0; /* Elimina márgenes horizontales en la lista del menú móvil */
+    text-align: center; /* Centra el texto de los ítems del menú */
+    padding: 0.5rem 0; /* Espaciado vertical para cada ítem del menú */
+}
+
+.main-nav .nav-list li a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición para color y fondo */
+    display: block; /* Para que el enlace ocupe todo el ancho del LI y sea más fácil de tocar */
+    padding: 0.5rem; /* Relleno para el área de toque del enlace */
+}
+
+.main-nav .nav-list li a:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Ligero fondo al pasar el ratón en el menú móvil */
+    color: var(--secondary-color);
+}
+
+/* El botón de menú hamburguesa se muestra en móviles */
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--light-text-color);
+    font-size: 2rem; /* Tamaño grande para que sea fácil de presionar en pantallas táctiles */
+    cursor: pointer;
+    margin-left: 20px; /* Espacio entre el título del sitio y el menú */
+}
+
+/* --- Contenido del Producto (sección modificada) --- */
+.product-page-content {
+    padding: 2rem 0;
+}
+
+.product-layout {
+    display: flex;
+    flex-direction: column; /* Por defecto, los elementos se apilan en columna (diseño para móvil primero) */
+    gap: 2rem; /* Espacio entre la imagen/galería y los detalles del producto */
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave para el contenedor del producto */
+}
+
+.product-image-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* La imagen principal y la galería se apilan verticalmente */
+    justify-content: center;
+    align-items: center; /* Centra el contenido horizontalmente (imagen y galería) */
+}
+
+.product-main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para la imagen principal */
+    margin-bottom: 1rem; /* Espacio entre la imagen principal y la galería de miniaturas */
+}
+
+/* Estilos para la galería de miniaturas */
+.product-thumbnail-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las miniaturas se envuelvan a la siguiente línea si no hay espacio horizontal */
+    justify-content: center; /* Centra las miniaturas horizontalmente */
+    gap: 0.5rem; /* Espacio entre las miniaturas */
+    width: 100%; /* Ocupa el ancho completo disponible del contenedor */
+    max-width: 600px; /* Limita el ancho de la galería en pantallas grandes para que no se estiren demasiado */
+}
+
+.thumbnail-item {
+    width: 80px; /* Tamaño fijo para cada miniatura */
+    height: 80px;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse, recortando si es necesario */
+    border: 2px solid var(--border-color); /* Borde por defecto */
+    border-radius: 4px;
+    cursor: pointer; /* Indica que es clickeable */
+    transition: border-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves para efectos visuales */
+}
+
+.thumbnail-item:hover {
+    border-color: var(--secondary-color); /* Resalta el borde al pasar el ratón */
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+}
+
+.thumbnail-item.active {
+    border-color: var(--primary-color); /* Borde distintivo para la miniatura activa/seleccionada */
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Resaltado adicional para la miniatura activa */
+}
+
+.product-details-wrapper {
+    flex: 1;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.product-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.product-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre el precio y el botón */
+    margin-bottom: 2rem;
+}
+
+.product-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.add-to-cart-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de "levantar" el botón */
+}
+
+.qr-code-section {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px dashed var(--border-color); /* Borde punteado para la sección del QR */
+    border-radius: 8px;
+    background-color: var(--background-color); /* Fondo ligeramente diferente para el QR */
+}
+
+.qr-code-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.product-qr-code {
+    max-width: 150px; /* Tamaño máximo para el código QR */
+    height: auto;
+    display: block; /* Para permitir el centrado con margin: auto */
+    margin: 0 auto 1rem auto; /* Centra el QR horizontalmente */
+    border: 5px solid var(--white); /* Borde blanco alrededor del QR */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.qr-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- Estilos del Pie de Página (Footer) --- */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Media Queries para Desktop (Pantallas más grandes: tablets y monitores) --- */
+@media (min-width: 768px) {
+    /* El header se organiza en fila nuevamente en pantallas más grandes */
+    .site-header .container {
+        flex-direction: row;
+    }
+
+    /* La navegación principal se muestra horizontalmente */
+    .main-nav .nav-list {
+        display: flex; /* Sobrescribe 'display: none' para mostrar el menú */
+        flex-direction: row; /* Coloca los ítems en fila */
+        position: static; /* Elimina el posicionamiento absoluto */
+        background-color: transparent; /* Fondo transparente */
+        box-shadow: none; /* Sin sombra */
+        padding: 0; /* Sin padding */
+        width: auto; /* Ancho automático */
+    }
+
+    .main-nav .nav-list li {
+        margin-left: 20px; /* Espacio entre los ítems de navegación */
+        text-align: left; /* Alinea el texto a la izquierda (aunque en fila no es tan relevante) */
+        padding: 0;
+    }
+
+    .main-nav .nav-list li a {
+        display: inline-block; /* Los enlaces se muestran en línea */
+        padding: 0; /* Elimina padding extra */
+    }
+
+    .main-nav .nav-list li a:hover {
+        background-color: transparent; /* No hay fondo al pasar el ratón en desktop */
+        color: var(--secondary-color);
+    }
+
+    /* El botón de menú hamburguesa se oculta en desktop */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* El layout del producto cambia a fila en desktop para una disposición de dos columnas */
+    .product-layout {
+        flex-direction: row;
+        align-items: flex-start; /* Alinea los elementos al inicio (arriba) en la fila */
+    }
+
+    /* La imagen y los detalles ocupan aproximadamente el 50% del ancho cada uno */
+    .product-image-wrapper,
+    .product-details-wrapper {
+        flex-basis: 50%;
+    }
+
+    .product-image-wrapper {
+        padding-right: 2rem; /* Añade espacio entre la imagen y el texto de los detalles */
+    }
+
+    /* La galería de miniaturas se alinea a la izquierda en desktop */
+    .product-thumbnail-gallery {
+        justify-content: flex-start;
+    }
+
+    /* Ajuste de tamaño para el título del producto en desktop */
+    .product-title {
+        font-size: 3rem;
+    }
+
+    /* Ajuste de tamaño para la descripción del producto en desktop */
+    .product-description {
+        font-size: 1.2rem;
+    }
+
+    /* La sección del QR se alinea a la izquierda y elimina bordes/sombras extras en desktop */
+    .qr-code-section {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
+
+    .product-qr-code {
+        margin: 0 0 1rem 0; /* Ajusta el margen para alineación izquierda */
+    }
+}
+
+/* Media Query para pantallas muy grandes (opcional, para refinar el título en monitores muy anchos) */
+@media (min-width: 1024px) {
+    .site-title {
+        font-size: 2rem;
+    }
+}

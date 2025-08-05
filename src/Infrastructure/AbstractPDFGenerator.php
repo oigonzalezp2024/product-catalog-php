@@ -243,31 +243,3 @@ abstract class AbstractPDFGenerator extends FPDF
         $this->Cell(0, 5, $this->_iconv('Sitio Web: ' . $this->page_info['company']['website']), 0, 1, 'C');
     }
 }
-
-/**
- * Clase concreta para la generación de PDFs de pedidos.
- * Hereda de AbstractPDFGenerator e implementa la interfaz de generación.
- */
-class OrderPDFGenerator extends AbstractPDFGenerator implements OrderPDFGeneratorInterface
-{
-    /**
-     * Método principal para generar y enviar el PDF completo.
-     *
-     * @return void
-     */
-    public function generate()
-    {
-        $this->AddPage();
-        $this->addHeader();
-        $this->addOrderSummary();
-        $this->addProductsTable();
-        $this->addPaymentTotal();
-        $this->addPaymentMethods();
-        $this->addFooter();
-        $this->Output();
-    }
-}
-
-// Creamos una nueva instancia del generador de PDF y la ejecutamos
-$pdf = new OrderPDFGenerator($page_info, $order_details);
-$pdf->generate();
