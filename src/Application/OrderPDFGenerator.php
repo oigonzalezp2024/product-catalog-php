@@ -1,13 +1,12 @@
 <?php
-require('./src/Infrastructure/AbstractPDFGenerator.php');
 
-use App\Domain\OrderPDFGeneratorInterface;
+use App\Domain\Interfaces\Entities\OrderPDFGeneratorInterface;
 
 /**
  * Clase concreta para la generación de PDFs de pedidos.
  * Hereda de AbstractPDFGenerator e implementa la interfaz de generación.
  */
-class OrderPDFGenerator extends AbstractPDFGenerator
+class OrderPDFGenerator extends AbstractPDFGenerator implements OrderPDFGeneratorInterface
 {
     /**
      * Método principal para generar y enviar el PDF completo.
@@ -23,6 +22,5 @@ class OrderPDFGenerator extends AbstractPDFGenerator
         $this->addPaymentTotal();
         $this->addPaymentMethods();
         $this->addFooter();
-        $this->Output();
     }
 }
