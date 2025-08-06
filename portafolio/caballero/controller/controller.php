@@ -11,5 +11,6 @@ if($orden == 'portafolio'){
 }else if($orden == 'visualizarPedido'){
     header('Location: ../carrito.php');
 }else if($orden == 'generarPedido'){
-    header('Location: ../../../generate_pdf.php');
+    include '../../../data.php';
+    include './generate_pdf.php';
 }

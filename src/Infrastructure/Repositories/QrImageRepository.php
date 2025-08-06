@@ -9,7 +9,7 @@ class QrImageRepository implements QrImageRepositoryInterface
 {
     function findQrImage(){
         $qrs = [];
-        $src = 'assets/images/qr_nequi.jpeg';
+        $src = '../../../assets/images/qr_nequi.jpeg';
         $alt = 'Código QR para pagar con Nequi';
         $width = 100;
         $height = 100;
@@ -21,7 +21,7 @@ class QrImageRepository implements QrImageRepositoryInterface
         );
         array_push($qrs, $qrImage);
 
-        $src = 'assets/images/qr_nequi.jpeg';
+        $src = '../../../assets/images/qr_nequi.jpeg';
         $alt = 'Código QR para pagar con Nequi';
         $width = 100;
         $height = 100;

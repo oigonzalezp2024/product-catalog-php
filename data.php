@@ -227,7 +227,7 @@ $data = [
     
     // Rutas a archivos de la plantilla y adjunto
     'template_path' => $_ENV['TEMPLATE_PATH'],
-    'attachment_path' => $_ENV['ATTACHMENT_PATH'] . 'pedido-'.$order_id.'.pdf',
+    'attachment_path' => '../../../'.$_ENV['ATTACHMENT_PATH'] . 'pedido-'.$order_id.'.pdf',
     'attachment_name' => 'pedido-'.$order_id.'.pdf',
 
     // Información de la empresa

@@ -10,7 +10,7 @@ class BannerPdfRepository implements BannerPdfRepositoryInterface
 {
     function findMyImage(): BannerPdf
     {
-        $src = './assets/images/banner_pdf.png';
+        $src = '../../../assets/images/banner_pdf.png';
         $alt = 'Logo de Tu Empresa';
         $width = 1200;
         $height = 400;
