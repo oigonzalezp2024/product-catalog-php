@@ -1,5 +1,5 @@
 <?php
-require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
+require_once './config.php'; // <--- Mueve esta línea al principio
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -69,27 +69,27 @@ require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
                                     <?php
                                     $item_width = '';
                                     $item_height = '';
-                                    if (isset($item['description'])) {
-                                        preg_match('/Dimensiones:\s*(\d+)x(\d+)px/', $item['description'], $matches_item);
+                                    if (isset($item['dimentions'])) {
+                                        preg_match('/Dimensiones:\s*(\d+)x(\d+)px/', $item['dimentions'], $matches_item);
                                         if (isset($matches_item[1]) && isset($matches_item[2])) {
                                             $item_width = $matches_item[1];
                                             $item_height = $matches_item[2];
                                         }
                                     }
                                     ?>
-                                    <a href="./controller/controller.php?orden=detalle">
+                                    <a href="./controller/controller.php?orden=detalle&imageId=<?php echo $item['id']; ?>">
                                     <img src="<?php echo htmlspecialchars($item['image']); ?>"
-                                         alt="Imagen de <?php echo htmlspecialchars($item['name']); ?> - <?php echo htmlspecialchars($category_name); ?>"
+                                         alt="Imagen de <?php echo htmlspecialchars($item['title']); ?> - <?php echo htmlspecialchars($category_name); ?>"
                                          <?php if (!empty($item_width) && !empty($item_height)): ?>
                                              width="<?php echo $item_width; ?>"
                                              height="<?php echo $item_height; ?>"
                                          <?php endif; ?>
                                     >
                                     </a>
-                                    <figcaption><h3><?php echo htmlspecialchars($item['name']); ?></h3></figcaption>
+                                    <figcaption><h3><?php echo htmlspecialchars($item['title']); ?></h3></figcaption>
                                 </figure>
                                 <p class="main-attribute"><?php echo htmlspecialchars($item['main_attribute']); ?></p>
-                                <p><?php echo htmlspecialchars($item['details']); ?></p>
+                                <p><?php echo htmlspecialchars($item['description']); ?></p>
                                 <?php if (isset($item['full_description'])): ?>
                                     <p class="item-full-description"><?php echo htmlspecialchars($item['full_description']); ?></p>
                                 <?php endif; ?>
