@@ -202,8 +202,8 @@ abstract class AbstractPDFGenerator extends FPDF
 
             $qr_x = $start_x + $qr_margin;
             $qr_y = $start_y + $title_height + $qr_margin;
-            if (file_exists($method['qr_image']['src'])) {
-                $this->Image($method['qr_image']['src'], $qr_x, $qr_y, $qr_size);
+            if (file_exists('../../../'.$method['qr_image']['src'])) {
+                $this->Image('../../../'.$method['qr_image']['src'], $qr_x, $qr_y, $qr_size);
             } else {
                 $this->SetXY($qr_x, $qr_y);
                 $this->SetFont('Arial', 'B', 8);

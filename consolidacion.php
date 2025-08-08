@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 // Carga las variables de entorno desde el archivo .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -32,81 +32,6 @@ use App\Infrastructure\Repositories\CompanyRepository;
 use App\Infrastructure\Repositories\MyImageRepository;
 
 use App\Infrastructure\Adapter\WebAdapter;
-
-$myImageRepository = new MyImageRepository();
-$bannerPdfRepository = new BannerPdfRepository();
-$companyRepository = new CompanyRepository();
-
-$web = new WebAdapter(
-    $myImageRepository,
-    $bannerPdfRepository,
-    $companyRepository
-);
-$page_info = $web->result();
-
-$name = 'Nombre del cliente';
-$address = 'Mz C4 torcoroma 2';
-$phone = '+57 3212962876';
-$email = 'oigonzalezp@gmail.com.co';
-$client = new Client(
-$name,
-$address,
-$phone,
-$email  
-);
-
-$items = [];
-$product = 'Bolsa 30x40';
-$quantity = 2;
-$price = 10000;
-$item = new Item(
-    $product,
-    $quantity,
-    $price
-);
-array_push($items, $item);
-$product = 'bolsas 35X45';
-$quantity = 1;
-$price = 50000;
-$item = new Item(
-    $product,
-    $quantity,
-    $price
-);
-array_push($items, $item);
-
-$myItems = [
-    [
-        'product' => $items[0]->getProduct(),
-        'quantity' => $items[0]->getQuantity(),
-        'price' => $items[0]->getPrice(),
-    ],
-    [
-        'product' => $items[1]->getProduct(),
-        'quantity' => $items[1]->getQuantity(),
-        'price' => $items[1]->getPrice(),
-    ],
-    [
-        'product' => $items[1]->getProduct(),
-        'quantity' => $items[1]->getQuantity(),
-        'price' => $items[1]->getPrice(),
-    ],
-    [
-        'product' => $items[1]->getProduct(),
-        'quantity' => $items[1]->getQuantity(),
-        'price' => $items[1]->getPrice(),
-    ],
-    [
-        'product' => $items[1]->getProduct(),
-        'quantity' => $items[1]->getQuantity(),
-        'price' => $items[1]->getPrice(),
-    ],
-    [
-        'product' => $items[1]->getProduct(),
-        'quantity' => $items[1]->getQuantity(),
-        'price' => $items[1]->getPrice(),
-    ],
-];
 
 // Calcula el total usando array_reduce()
 $total_amount = array_reduce($myItems, function ($valorAcumulado, $item)

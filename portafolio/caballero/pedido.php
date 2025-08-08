@@ -74,7 +74,7 @@ include '../../data.php';
                     </div>
                     <div class="qr-placeholder">
                         <img
-                            src="<?php echo $method['qr_image']['src']; ?>"
+                            src="/../../../<?php echo $method['qr_image']['src']; ?>"
                             alt="<?php echo $method['qr_image']['alt']; ?>"
                             width="<?php echo $method['qr_image']['width']; ?>"
                             height="<?php echo $method['qr_image']['height']; ?>">

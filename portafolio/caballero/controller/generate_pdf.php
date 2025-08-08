@@ -1,17 +1,17 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-require('./src/Infrastructure/Lib/Fpdf/fpdf.php');
-require('./data.php');
-require('./src/Infrastructure/AbstractPDFGenerator.php');
-require('./src/Application/OrderPDFGenerator.php');
+require __DIR__ . '/../../../vendor/autoload.php';
+require('../../../src/Infrastructure/Lib/Fpdf/fpdf.php');
+//require('./data.php');
+require('../../../src/Infrastructure/AbstractPDFGenerator.php');
+require('../../../src/Application/OrderPDFGenerator.php');
 
 $order_id = $data['order_id'];
 
 // Creamos una nueva instancia del generador de PDF y la ejecutamos
 $pdf = new OrderPDFGenerator($page_info, $order_details);
 $pdf->generate();
-$pdf->Output('F','./pedidos/pedido-'.$order_id.'.pdf');
+$pdf->Output('F','../../../pedidos/pedido-'.$order_id.'.pdf');
 
 // Incluye las clases de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -41,7 +41,7 @@ try {
     }
 
     // Leer el contenido de la plantilla HTML
-    $template_html = file_get_contents($data['template_path']);
+    $template_html = file_get_contents('../../../'.$data['template_path']);
 
     // Reemplazar marcadores de posición con los datos del array
     foreach ($data as $key => $value) {
@@ -56,8 +56,8 @@ try {
     $mail->Body    = $template_html;
 
     // ANEXAR ARCHIVO ADJUNTO (opcional)
-    if (isset($data['attachment_path']) && file_exists($data['attachment_path'])) {
-        $mail->addAttachment($data['attachment_path'], $data['attachment_name']);
+    if (isset($data['attachment_path']) && file_exists('../../.'.$data['attachment_path'])) {
+        $mail->addAttachment('../../.'.$data['attachment_path'], $data['attachment_name']);
     }else{
         echo "error: ". $data['attachment_path'];
     }
