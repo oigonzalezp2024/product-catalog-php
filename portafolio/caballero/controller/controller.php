@@ -34,6 +34,9 @@ use App\Infrastructure\Repositories\MyImageRepository;
 use App\Infrastructure\Adapter\WebAdapter;
 use App\Infrastructure\Repositories\ItemsRepository;
 
+define('IMAGE_BASE_PATH', '../../images/'); // Ajusta esta ruta según la ubicación real de tus imágenes de ítems
+
+
 // Inicia la sesión para poder usar las variables de sesión
 session_start();
 
@@ -48,13 +51,13 @@ if (isset($_GET['orden'])) {
         header('Location: ../presentacion_producto/index.php');
         exit;
     } else if ($orden == 'agregarALCarrito') {
-        //$_SESSION['myItems'] = [];
+        // $_SESSION['myItems'] = [];
         $itemid = $_GET['itemid'];
         $myImageRepository = new ItemsRepository();
         $item = $myImageRepository->findById($itemid);
 
         $product = [
-            'product' => $item->getProduct(),
+            'product' => $item->getTitle(),
             'quantity' => $item->getQuantity(),
             'price' =>$item->getPrice()
         ];

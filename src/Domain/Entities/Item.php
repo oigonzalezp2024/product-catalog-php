@@ -6,23 +6,45 @@ use App\Domain\Interfaces\Entities\ItemInterface;
 
 class Item implements ItemInterface
 {
-    // Hacemos que el ID sea opcional, ya sea con ?int para PHP 7.1+
-    // o inicializándolo a null
     private ?int $id = null;
-    private string $product;
+    private string $title; // 'product' y 'title' se han unificado aquí
     private string $quantity;
     private string $price;
+    private ?string $description = null;
+    private ?array $main_image = null;
+    private ?array $gallery_images = null;
+    private ?array $qr_code = null;
+    private ?string $main_attribute = null;
+    private ?string $details = null;
+    private ?string $image = null;
+    private ?string $full_description = null;
 
     public function __construct(
-        string $product,
+        string $title, // El constructor ahora solo recibe 'title'
         string $quantity,
         string $price,
-        ?int $id = null // El ID se pasa como un parámetro opcional
+        ?int $id = null,
+        ?string $description = null,
+        ?array $main_image = null,
+        ?array $gallery_images = null,
+        ?array $qr_code = null,
+        ?string $main_attribute = null,
+        ?string $details = null,
+        ?string $image = null,
+        ?string $full_description = null
     ) {
-        $this->product = $product;
+        $this->title = $title;
         $this->quantity = $quantity;
         $this->price = $price;
         $this->id = $id;
+        $this->description = $description;
+        $this->main_image = $main_image;
+        $this->gallery_images = $gallery_images;
+        $this->qr_code = $qr_code;
+        $this->main_attribute = $main_attribute;
+        $this->details = $details;
+        $this->image = $image;
+        $this->full_description = $full_description;
     }
 
     public function getId(): ?int
@@ -30,16 +52,14 @@ class Item implements ItemInterface
         return $this->id;
     }
 
-    // Opcionalmente, puedes añadir un "setter" para el ID
-    // Este método se usaría para asignar el ID después de guardar
     public function setId(int $id): void
     {
         $this->id = $id;
     }
 
-    public function getProduct(): string
+    public function getTitle(): string
     {
-        return $this->product;
+        return $this->title;
     }
 
     public function getQuantity(): string
@@ -50,5 +70,45 @@ class Item implements ItemInterface
     public function getPrice(): string
     {
         return $this->price;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function getMainImage(): ?array
+    {
+        return $this->main_image;
+    }
+
+    public function getGalleryImages(): ?array
+    {
+        return $this->gallery_images;
+    }
+
+    public function getQrCode(): ?array
+    {
+        return $this->qr_code;
+    }
+
+    public function getMainAttribute(): ?string
+    {
+        return $this->main_attribute;
+    }
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function getFullDescription(): ?string
+    {
+        return $this->full_description;
     }
 }
