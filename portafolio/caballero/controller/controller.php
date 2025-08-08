@@ -32,6 +32,7 @@ use App\Infrastructure\Repositories\CompanyRepository;
 use App\Infrastructure\Repositories\MyImageRepository;
 
 use App\Infrastructure\Adapter\WebAdapter;
+use App\Infrastructure\Repositories\ItemsRepository;
 
 // Inicia la sesión para poder usar las variables de sesión
 session_start();
@@ -47,11 +48,11 @@ if (isset($_GET['orden'])) {
         header('Location: ../presentacion_producto/index.php');
         exit;
     } else if ($orden == 'agregarALCarrito') {
-        $item = new Item(
-            'papel higienicooooo',
-            '11',
-            '1000'
-        );
+        //$_SESSION['myItems'] = [];
+        $itemid = $_GET['itemid'];
+        $myImageRepository = new ItemsRepository();
+        $item = $myImageRepository->findById($itemid);
+
         $product = [
             'product' => $item->getProduct(),
             'quantity' => $item->getQuantity(),

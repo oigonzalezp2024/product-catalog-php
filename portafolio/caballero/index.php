@@ -1,5 +1,5 @@
 <?php
-require_once '../config_caballero.php'; // <--- Mueve esta línea al principio
+require_once './config.php'; // <--- Mueve esta línea al principio
 ?>
 <!DOCTYPE html>
 <html lang="es">
