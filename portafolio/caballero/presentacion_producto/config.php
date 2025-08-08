@@ -1,4 +1,10 @@
 <?php
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
+// Carga las variables de entorno desde el archivo .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../../../');
+$dotenv->load();
+
 // config.php
 // Este archivo centraliza la configuración y los datos del producto.
 
@@ -9,36 +15,22 @@ define('CEO_DESCRIPTION', 'CEO y fundador de Mi Tienda Online, con más de 10 a�
 define('FOOTER_TEXT', '&copy; ' . date('Y') . ' Mi Tienda Online. Todos los derechos reservados.');
 define('MADE_WITH_LOVE_TEXT', 'Hecho con ❤️ en Cúcuta, Colombia'); // Recordando la ubicación y el creador.
 
+// Define la ruta base donde se encuentran tus imágenes de productos y banners.
+define('IMAGE_BASE_PATH', '../../images/'); 
+define('BANNER_BASE_PATH', '../../images/banners/');
+
+use App\Infrastructure\Repositories\ItemsRepository;
+
 // Datos del Producto Principal
-$product_data = [
-    'id' => 'producto_ejemplo_001',
-    'title' => 'Nombre Asombroso del Producto',
-    'description' => 'Este es un producto innovador diseñado para simplificar tu vida. Con su tecnología de vanguardia y diseño ergonómico, ofrece una experiencia de usuario inigualable. Ideal para profesionales y entusiastas que buscan eficiencia y calidad. Disponible en varios colores y configuraciones para adaptarse a tus necesidades.<br><br>Fabricado con materiales sostenibles y procesos amigables con el medio ambiente, garantizando no solo un alto rendimiento sino también un impacto positivo.',
-    'price' => '99.99',
-    'main_image' => [
-        'path' => 'assets/images/foto_1.png', // Asegúrate de que esta ruta sea correcta
-        'alt' => 'Imagen principal del Nombre Asombroso del Producto',
-        'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
-        'height' => '400'
-    ],
-    // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
-    'gallery_images' => [
-        ['path' => 'assets/images/foto_1.png', 'alt' => 'Producto vista lateral'],
-        ['path' => 'assets/images/foto_2.png', 'alt' => 'Producto detalle frontal'],
-        ['path' => 'assets/images/foto_3.png', 'alt' => 'Producto con accesorios'], // Séptima imagen de ejemplo
-    ],
-    'qr_code' => [
-        'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
-        'alt' => 'Código QR de la página oficial del Nombre Asombroso del Producto',
-        'size' => '150x150' // Tamaño para la generación del QR
-    ]
-];
+$itemsRepository = new ItemsRepository();
+$imageId = $_GET['imageId'];
+$product_data = $itemsRepository->getItemDetailById($imageId);
 
 // Rutas de navegación del sitio
 $nav_links = [
-    ['text' => 'Inicio', 'href' => '#'], // Cambia '#' por las rutas reales
-    ['text' => 'Productos', 'href' => '#'],
-    ['text' => 'Contacto', 'href' => '#']
+    ['text' => 'Inicio', 'href' => '../../../../'], // Cambia '#' por las rutas reales
+    ['text' => 'Productos', 'href' => '../'],
+    ['text' => 'Contacto', 'href' => 'https://api.whatsapp.com/send/?phone=%2B573203711137&text=Hola%20VEUD,%20acabo%20de%20visitar%20su%20perfil%20https://babull.com.co/veud/%20&type=phone_number&app_absent=0']
 ];
 
 /**
