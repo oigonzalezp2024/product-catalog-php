@@ -23,7 +23,8 @@ use App\Infrastructure\Repositories\ItemsRepository;
 
 // Datos del Producto Principal
 $itemsRepository = new ItemsRepository();
-$product_data = $itemsRepository->itemDetail();
+$imageId = $_GET['imageId'];
+$product_data = $itemsRepository->getItemDetailById($imageId);
 
 // Rutas de navegación del sitio
 $nav_links = [

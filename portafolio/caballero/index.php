@@ -77,7 +77,7 @@ require_once './config.php'; // <--- Mueve esta línea al principio
                                         }
                                     }
                                     ?>
-                                    <a href="./controller/controller.php?orden=detalle">
+                                    <a href="./controller/controller.php?orden=detalle&imageId=<?php echo $item['id']; ?>">
                                     <img src="<?php echo htmlspecialchars($item['image']); ?>"
                                          alt="Imagen de <?php echo htmlspecialchars($item['title']); ?> - <?php echo htmlspecialchars($category_name); ?>"
                                          <?php if (!empty($item_width) && !empty($item_height)): ?>

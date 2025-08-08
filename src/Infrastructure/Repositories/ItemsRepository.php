@@ -18,30 +18,26 @@ class ItemsRepository implements ItemsRepositoryInterface
     {
         // Se utiliza el mismo método 'create' para los datos iniciales.
         // Esto garantiza que cada ítem reciba un ID de manera consistente.
-        $this->create(new Item('Bolsa 30x40', 2, 10000));
-        $this->create(new Item('bolsas 35X41', 1, 50000));
-        $this->create(new Item('bolsas 35X42', 1, 50000));
-        $this->create(new Item('bolsas 35X43', 1, 50000));
 
         $products = [
             [
-                'id' => '1',
+                'id' => 1,
                 'title' => 'Acqua di Giò Profumo (Hombre)',
                 'main_attribute' => 'Aromático Acuático',
                 'description' => 'Incienso, Notas Marinas, Pachulí',
                 'image' => IMAGE_BASE_PATH . 'aqua_de_guio_profumo_hombre.webp',
                 'dimentions' => 'Dimensiones: 300x300px', // ¡Verifica y actualiza!
                 'full_description' => 'Profumo es una reinterpretación profunda y sofisticada de Acqua di Giò, con notas minerales y un corazón de incienso que evoca la fuerza del mar.',
-                'price' => '99.99',
+                'price' => '100.00',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'aqua_de_guio_profumo_hombre.webp', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'aqua_de_guio_profumo_hombre.webp', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -50,23 +46,23 @@ class ItemsRepository implements ItemsRepositoryInterface
                 ]
             ],
             [
-                'id' => '2',
+                'id' => 2,
                 'title' => 'Jean Paul Gaultier Le Male Ultra (Hombre)',
                 'main_attribute' => 'Oriental Fougère',
                 'description' => 'Vainilla, Pera, Canela',
                 'image' => IMAGE_BASE_PATH . 'Jean Paul lemale ultra hombre.webp',
                 'dimentions' => 'Dimensiones: 300x300px', // ¡Verifica y actualiza!
                 'full_description' => 'Una versión intensa y audaz de Le Male, con una mezcla de menta, lavanda y vainilla que proyecta sensualidad y misterio.',
-                'price' => '99.99',
+                'price' => '200.00',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'Jean Paul lemale ultra hombre.webp', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'Jean Paul lemale ultra hombre.webp', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -75,23 +71,23 @@ class ItemsRepository implements ItemsRepositoryInterface
                 ]
             ],
             [
-                'id' => '3',
+                'id' => 3,
                 'title' => 'Jean Paul Gaultier Le Male Elixir (Hombre)',
                 'main_attribute' => 'Amaderado Ambarino',
                 'description' => 'Lavanda, Vainilla, Haba Tonka',
                 'image' => IMAGE_BASE_PATH . 'jean_paul_lemale_elixir_hombre.webp',
                 'dimentions' => 'Dimensiones: 300x300px', // ¡Verifica y actualiza!
                 'full_description' => 'Le Male Elixir es la interpretación más rica y opulenta, con notas de miel y tabaco que lo hacen irresistible y perfecto para la noche.',
-                'price' => '99.99',
+                'price' => '300.99',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'jean_paul_lemale_elixir_hombre.webp', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'jean_paul_lemale_elixir_hombre.webp', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -100,7 +96,7 @@ class ItemsRepository implements ItemsRepositoryInterface
                 ]
             ],
             [
-                'id' => '4',
+                'id' => 4,
                 'title' => 'Orientica Oud Saffron (Hombre)',
                 'main_attribute' => 'Oriental Amaderado',
                 'description' => 'Azafrán, Oud, Cuero',
@@ -109,14 +105,14 @@ class ItemsRepository implements ItemsRepositoryInterface
                 'full_description' => 'Una fragancia de lujo con azafrán, oud y cuero, ideal para hombres que aprecian los aromas profundos y exóticos.',
                 'price' => '99.99',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'orientica_oud_safron_hombre.jpg', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'orientica_oud_safron_hombre.jpg', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -125,7 +121,7 @@ class ItemsRepository implements ItemsRepositoryInterface
                 ]
             ],
             [
-                'id' => '5',
+                'id' => 5,
                 'title' => '9 PM Negra (Hombre)',
                 'main_attribute' => 'Oriental Especiado',
                 'description' => 'Ambar, Vainilla, Manzana',
@@ -134,14 +130,14 @@ class ItemsRepository implements ItemsRepositoryInterface
                 'full_description' => 'Una fragancia nocturna e intensa con notas cálidas y especiadas, ideal para eventos especiales y para dejar una impresión duradera.',
                 'price' => '99.99',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'p_9_pm_negra_hombre.webp', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'p_9_pm_negra_hombre.webp', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -150,7 +146,7 @@ class ItemsRepository implements ItemsRepositoryInterface
                 ]
             ],
             [
-                'id' => '6',
+                'id' => 6,
                 'title' => 'Perfume Dolce & Gabbana Pour Homme',
                 'main_attribute' => 'Aromático Fougère',
                 'description' => 'Cítricos, Lavanda, Tabaco',
@@ -159,14 +155,14 @@ class ItemsRepository implements ItemsRepositoryInterface
                 'full_description' => 'Un clásico atemporal para hombres, con una mezcla de cítricos frescos, lavanda aromática y un toque de tabaco que lo hace elegante y masculino.',
                 'price' => '99.99',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'perfume_dolce_gabbana_pour_homme.jpg', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'perfume_dolce_gabbana_pour_homme.jpg', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -175,7 +171,7 @@ class ItemsRepository implements ItemsRepositoryInterface
                 ]
             ],
             [
-                'id' => '7',
+                'id' => 7,
                 'title' => 'Valentino Born in Roma (Hombre)',
                 'main_attribute' => 'Amaderado Aromático',
                 'description' => 'Vetiver, Jengibre, Salvia',
@@ -184,14 +180,14 @@ class ItemsRepository implements ItemsRepositoryInterface
                 'full_description' => 'Born in Roma Uomo es una fragancia moderna y fresca, con un corazón amaderado que celebra la herencia romana y la modernidad urbana.',
                 'price' => '99.99',
                 'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
+                    'path' => IMAGE_BASE_PATH . 'valentino_born_in_roma_hombre.webp', // Asegúrate de que esta ruta sea correcta
                     'alt' => 'Imagen principal del Nombre Asombroso del Producto',
                     'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
                     'height' => '400'
                 ],
                 // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
                 'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
+                    ['path' => IMAGE_BASE_PATH . 'valentino_born_in_roma_hombre.webp', 'alt' => 'Producto vista lateral'],
                 ],
                 'qr_code' => [
                     'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
@@ -206,7 +202,32 @@ class ItemsRepository implements ItemsRepositoryInterface
             $quantity = 1;
             $price = $product['price'];
             $id = $product['id'];
-            $this->create(new Item($pro, $quantity, $price, $id));
+
+            $description = $product['description'];
+            $main_image = $product['main_image'];
+            $gallery_images = $product['gallery_images'];
+            $qr_code = $product['qr_code'];
+            $main_attribute = $product['main_attribute'];
+            $details = $product['description'];
+            $image = $product['image'];
+            $full_description = $product['full_description'];
+
+            $this->create(
+                new Item(
+                    $pro, 
+                    $quantity, 
+                    $price, 
+                    $id,
+                    $description,
+                    $main_image,
+                    $gallery_images,
+                    $qr_code,
+                    $main_attribute,
+                    $details,
+                    $image,
+                    $full_description
+                )
+            );
         }
     }
 
@@ -214,7 +235,7 @@ class ItemsRepository implements ItemsRepositoryInterface
     {
         // Se clona el objeto para no modificar el original
         $newItem = clone $item;
-        $newItem->setId($this->nextId++);
+        // $newItem->setId($this->nextId++);
         $this->items[] = $newItem;
 
         return $newItem;
@@ -259,58 +280,23 @@ class ItemsRepository implements ItemsRepositoryInterface
         return false;
     }
 
-    public function itemDetail(): array
+    public function getItemDetailById(int $itemId): ?array
     {
-        $products = [
-            [
-                'id' => 'producto_ejemplo_001',
-                'title' => 'Nombre Asombroso del Producto',
-                'description' => 'Este es un producto innovador diseñado para simplificar tu vida. Con su tecnología de vanguardia y diseño ergonómico, ofrece una experiencia de usuario inigualable. Ideal para profesionales y entusiastas que buscan eficiencia y calidad. Disponible en varios colores y configuraciones para adaptarse a tus necesidades.<br><br>Fabricado con materiales sostenibles y procesos amigables con el medio ambiente, garantizando no solo un alto rendimiento sino también un impacto positivo.',
-                'price' => '99.99',
-                'main_image' => [
-                    'path' => IMAGE_BASE_PATH . '212sexy.jpg', // Asegúrate de que esta ruta sea correcta
-                    'alt' => 'Imagen principal del Nombre Asombroso del Producto',
-                    'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
-                    'height' => '400'
-                ],
-                // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
-                'gallery_images' => [
-                    ['path' => IMAGE_BASE_PATH . '212sexy.jpg', 'alt' => 'Producto vista lateral'],
-                ],
-                'qr_code' => [
-                    'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
-                    'alt' => 'Código QR de la página oficial del Nombre Asombroso del Producto',
-                    'size' => '150x150' // Tamaño para la generación del QR
-                ]
-            ],
-            [
-                'id' => 'producto_ejemplo_001',
-                'title' => 'Nombre Asombroso del Producto',
-                'description' => 'Este es un producto innovador diseñado para simplificar tu vida. Con su tecnología de vanguardia y diseño ergonómico, ofrece una experiencia de usuario inigualable. Ideal para profesionales y entusiastas que buscan eficiencia y calidad. Disponible en varios colores y configuraciones para adaptarse a tus necesidades.<br><br>Fabricado con materiales sostenibles y procesos amigables con el medio ambiente, garantizando no solo un alto rendimiento sino también un impacto positivo.',
-                'price' => '99.99',
-                'main_image' => [
-                    'path' => 'assets/images/foto_1.png', // Asegúrate de que esta ruta sea correcta
-                    'alt' => 'Imagen principal del Nombre Asombroso del Producto',
-                    'width' => '600', // Dimensiones sugeridas para la imagen base (se escalarán con CSS)
-                    'height' => '400'
-                ],
-                // Galería de imágenes (puedes añadir hasta 7 o más, según lo necesites)
-                'gallery_images' => [
-                    ['path' => 'assets/images/foto_1.png', 'alt' => 'Producto vista lateral'],
-                    ['path' => 'assets/images/foto_2.png', 'alt' => 'Producto detalle frontal'],
-                    ['path' => 'assets/images/foto_3.png', 'alt' => 'Producto con accesorios'], // Séptima imagen de ejemplo
-                ],
-                'qr_code' => [
-                    'data_url' => 'https://www.tu-tienda.com/productos/nombre-asombroso-del-producto', // ¡CAMBIA ESTA URL A LA PÁGINA REAL DE TU PRODUCTO!
-                    'alt' => 'Código QR de la página oficial del Nombre Asombroso del Producto',
-                    'size' => '150x150' // Tamaño para la generación del QR
-                ]
-            ]
-        ];
+        foreach ($this->items as $item) {
+            if ($item->getId() === $itemId) {
+                return [
+                    'id' => $item->getId(),
+                    'title' => $item->getTitle(),
+                    'description' => $item->getDescription(),
+                    'price' => $item->getPrice(),
+                    'main_image' => $item->getMainImage(),
+                    'gallery_images' => $item->getGalleryImages(),
+                    'qr_code' => $item->getQrCode(),
+                ];
+            }
+        }
 
-        $product_data = $products[0];
-
-        return $product_data;
+        return null; // Devuelve null si no se encuentra ningún elemento con el ID
     }
 
     public function itemDetailOfCategory(): array

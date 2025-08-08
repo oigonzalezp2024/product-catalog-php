@@ -48,7 +48,8 @@ if (isset($_GET['orden'])) {
         header('Location: ../index.php');
         exit;
     } else if ($orden == 'detalle') {
-        header('Location: ../presentacion_producto/index.php');
+        $imageId = $_GET['imageId'];
+        header('Location: ../presentacion_producto/index.php?imageId='.$imageId);
         exit;
     } else if ($orden == 'agregarALCarrito') {
         // $_SESSION['myItems'] = [];
