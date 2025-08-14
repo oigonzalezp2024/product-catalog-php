@@ -25,7 +25,7 @@ $business_info = [
     'meta_description' => 'Descubre nuestra exclusiva colección de perfumes de lujo y fragancias para hombre y mujer. ¡Explora los aromas más exclusivos y encuentra tu esencia ideal!', // Nueva meta descripción para SEO
 ];
 
-$itemsRepository = new ItemsRepository();
+$itemsRepository = new ItemsRepository('../images/');
 
 // Array con todos los datos de los productos/categorías
 // Las claves de alto nivel (ej. 'Perfumes para Hombre') actúan como nombres de categoría.
