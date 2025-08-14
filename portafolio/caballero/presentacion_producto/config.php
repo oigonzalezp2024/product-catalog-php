@@ -22,7 +22,7 @@ define('BANNER_BASE_PATH', '../../images/banners/');
 use App\Infrastructure\Repositories\ItemsRepository;
 
 // Datos del Producto Principal
-$itemsRepository = new ItemsRepository();
+$itemsRepository = new ItemsRepository(IMAGE_BASE_PATH);
 $imageId = $_GET['imageId'];
 $product_data = $itemsRepository->getItemDetailById($imageId);
 

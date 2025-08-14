@@ -86,7 +86,10 @@ require_once './config.php'; // <--- Mueve esta línea al principio
                                          <?php endif; ?>
                                     >
                                     </a>
-                                    <figcaption><h3><?php echo htmlspecialchars($item['title']); ?></h3></figcaption>
+                                    <figcaption>
+                                        <h3><?php echo htmlspecialchars($item['title']); ?></h3>
+                                        <h3><?php echo htmlspecialchars($item['price']); ?></h3>
+                                    </figcaption>
                                 </figure>
                                 <p class="main-attribute"><?php echo htmlspecialchars($item['main_attribute']); ?></p>
                                 <p><?php echo htmlspecialchars($item['description']); ?></p>
