@@ -90,7 +90,7 @@
                     border: 5px solid #5ac9ff;
                     border-radius: 16px;
                     ">Volver</a>
-                <a href="./controller.php?orden=generarPedido" style="
+                <a href="./controller.php?orden=registroCliente" style="
                     background-color: #ffffff;
                     color: #00ff46;
                     padding: 16px;
