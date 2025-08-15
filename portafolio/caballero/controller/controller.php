@@ -99,5 +99,8 @@ if (isset($_GET['orden'])) {
         include '../../../consolidacion.php';
         include './generate_pdf.php';
         exit;
+    } else if ($orden == 'registroCliente') {
+        header('Location: ../../../gestionEntrega/');
+        exit;
     }
 }
