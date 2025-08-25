@@ -1,6 +1,9 @@
 <?php
 include_once "../../config.php";
 include 'conexion.php';
+
+date_default_timezone_set('America/Bogota');
+
 $conn = conexion($config);
 
 $accion = $_GET['accion'];
@@ -14,11 +17,12 @@ if($accion == "insertar"){
     $direccion_entrega = $_POST['direccion_entrega'];
     $email = $_POST['email'];
     $dni = $_POST['dni'];
+    $fecha_registro = date("Y-m-d H:i:s");
 
     $sql="INSERT INTO clientes(
-          id_cliente, nombre, telefono_1, telefono_2, direccion_entrega, email, dni
+          id_cliente, nombre, telefono_1, telefono_2, direccion_entrega, email, dni, fecha_registro
           )VALUE(
-          '$id_cliente', '$nombre', '$telefono_1', '$telefono_2', '$direccion_entrega', '$email', '$dni')";
+          '$id_cliente', '$nombre', '$telefono_1', '$telefono_2', '$direccion_entrega', '$email', '$dni', '$fecha_registro')";
 
     echo $consulta = mysqli_query($conn, $sql);
 }
