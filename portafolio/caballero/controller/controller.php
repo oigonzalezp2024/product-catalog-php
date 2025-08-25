@@ -54,8 +54,10 @@ if (isset($_GET['orden'])) {
     } else if ($orden == 'agregarALCarrito') {
         // $_SESSION['myItems'] = [];
         $itemid = $_GET['itemid'];
+        $quantity = $_GET['quantity'];
         $myImageRepository = new ItemsRepository();
         $item = $myImageRepository->findById($itemid);
+        $item->setQuantity($quantity);
 
         $product = [
             'product' => $item->getTitle(),

@@ -111,4 +111,9 @@ class Item implements ItemInterface
     {
         return $this->full_description;
     }
+
+    public function setQuantity($quantity): void
+    {
+        $this->quantity = $quantity;
+    }
 }
