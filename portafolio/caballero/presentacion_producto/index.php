@@ -57,8 +57,32 @@ $imageId = $_GET['imageId'];
                     <?php echo $product_data['description']; // La descripción puede contener etiquetas HTML como <br> ?>
                 </p>
                 <div class="product-actions">
-                    <span class="product-price">$<?php echo number_format($product_data['price'], 2, '.', ','); ?></span>
-                    <a class="add-to-cart-btn" href="../controller/controller.php?orden=agregarALCarrito&itemid=<?php echo $imageId; ?>">Añadir al Carrito</a>
+                    <form action="../controller/controller.php" method="get">
+                        <span class="product-price">$<?php echo number_format($product_data['price'], 2, '.', ','); ?></span>
+                        <fieldset style="
+                        height: 61px;
+                        padding: 15px;
+                        border: 0px;
+                        background-color: #e2f1ff;
+                        border-radius: 15px;
+                        margin-top: 15px;
+                        margin-bottom: 16px;
+                        ">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" name="quantity" id="quantity" style="
+                        font-size: 24px;
+                        width: 80px;
+                        border: 0px;
+                        ">                        
+                        </fieldset>
+                        <fieldset hidden>
+                            <input type="text" name="orden" id="orden" value="agregarALCarrito">                            
+                        </fieldset>
+                        <fieldset hidden>
+                            <input type="number" name="itemid" id="itemid" value="<?php echo $imageId; ?>">                            
+                        </fieldset>
+                        <input class="add-to-cart-btn" type="submit" value="Añadir al Carrito">
+                    </form>
                 </div>
 
                 <div class="qr-code-section">
